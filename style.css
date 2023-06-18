@@ -5,7 +5,7 @@
 }
 body {
     margin: 0;
-    background-color: rgb(108, 138, 168);
+    background-color: #93BFCF;
 }
 :root {
     --cell-size: 15vh;
