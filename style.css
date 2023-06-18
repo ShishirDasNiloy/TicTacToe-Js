@@ -1,18 +1,20 @@
-*, *::after, *::before{
+*,
+*::after,
+*::before {
     box-sizing: border-box;
 }
-body{
+body {
     margin: 0;
     background-color: rgb(108, 138, 168);
 }
-:root{
-    --cell-size: 10vw;
-    --mark-size: calc(var(--cell-size)* .6);
+:root {
+    --cell-size: 15vh;
+    --mark-size: calc(var(--cell-size) * 0.6);
     --pcolor: white;
     --scolor: black;
     --tcolor: rgb(0, 255, 255);
 }
-.board{
+.board {
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -20,14 +22,14 @@ body{
     align-content: center;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(3,auto);
+    grid-template-columns: repeat(3, auto);
 }
-.cell{
+.cell {
     width: var(--cell-size);
     height: var(--cell-size);
     margin: 2px;
     background-color: var(--scolor);
-    border-radius: 1.5vw;
+    border-radius: 1.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,92 +37,90 @@ body{
     cursor: pointer;
 }
 .cell.x,
-.cell.o{
+.cell.o {
     cursor: not-allowed;
 }
 
 .cell.x::before,
 .cell.x::after,
-.cell.o::before{
+.cell.o::before {
     background-color: var(--pcolor);
 }
 
-
 .board.x .cell:not(.x):not(.o):hover::before,
 .board.x .cell:not(.x):not(.o):hover::after,
-.board.o .cell:not(.x):not(.o):hover::before{
-    background-color:var(--tcolor);
+.board.o .cell:not(.x):not(.o):hover::before {
+    background-color: var(--tcolor);
 }
 
-.cell.x::before, 
+.cell.x::before,
 .cell.x::after,
 .board.x .cell:not(.x):not(.o):hover::before,
-.board.x .cell:not(.x):not(.o):hover::after{
+.board.x .cell:not(.x):not(.o):hover::after {
     content: '';
     position: absolute;
-    width: calc(var(--mark-size) * .15);
+    width: calc(var(--mark-size) * 0.15);
     height: var(--mark-size);
-   
+
     border-radius: 10px;
 }
 .cell.x::before,
-.board.x .cell:not(.x):not(.o):hover::before{
+.board.x .cell:not(.x):not(.o):hover::before {
     transform: rotate(45deg);
 }
 .cell.x::after,
-.board.x .cell:not(.x):not(.o):hover::after{
+.board.x .cell:not(.x):not(.o):hover::after {
     transform: rotate(-45deg);
 }
-.cell.o::before, 
+.cell.o::before,
 .cell.o::after,
 .board.o .cell:not(.x):not(.o):hover::before,
-.board.o .cell:not(.x):not(.o):hover::after{
+.board.o .cell:not(.x):not(.o):hover::after {
     content: '';
     position: absolute;
     border-radius: 50%;
 }
 .cell.o::before,
-.board.o .cell:not(.x):not(.o):hover::before{
+.board.o .cell:not(.x):not(.o):hover::before {
     width: var(--mark-size);
     height: var(--mark-size);
 }
 .cell.o::after,
-.board.o .cell:not(.x):not(.o):hover::after{
-    width: calc(var(--mark-size) * .7);
-    height: calc(var(--mark-size) * .7);
+.board.o .cell:not(.x):not(.o):hover::after {
+    width: calc(var(--mark-size) * 0.7);
+    height: calc(var(--mark-size) * 0.7);
     background-color: var(--scolor);
 }
 
-.win{
+.win {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, 0.8);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: var(--tcolor);
-    font-size: 5rem;
+    font-size: 10vw;
 }
-.win button{
+.win button {
     font-size: 2rem;
     background-color: var(--scolor);
     color: var(--pcolor);
     border-color: var(--pcolor);
     border-radius: 5px;
     padding: 10px;
-    margin:50px;
+    margin: 50px;
     cursor: pointer;
 }
-.win button:hover{
+.win button:hover {
     background-color: var(--scolor);
     color: var(--tcolor);
     border-color: var(--tcolor);
 }
-.win.show{
+.win.show {
     display: flex;
 }
-
